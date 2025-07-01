@@ -1,0 +1,60 @@
+# Các file và thư mục liên quan đến Git
+.git
+.gitignore
+.github
+
+# Các file và thư mục liên quan đến IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.apt_generated/
+.factorypath
+.springBeans/
+.sts4-cache/
+nbproject/
+nb-configuration.xml
+
+# Các thư mục build và target
+target/
+build/
+out/
+bin/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Các file log và tạm thời
+*.log
+logs/
+*.pid
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Các file và thư mục liên quan đến Docker
+.dockerignore
+Dockerfile*
+docker-compose*
+deployment.yaml
+
+# Các file và thư mục liên quan đến Maven/Gradle
+.mvn/wrapper/maven-wrapper.jar
+.gradle/
+
+# Các file và thư mục khác không cần thiết
+README.md
+LICENSE
+HELP.md
+*.md
+node_modules/
+npm-debug.log
+
+# Giữ lại các file cần thiết
+!mvnw
+!mvnw.cmd
+!.mvn/wrapper/maven-wrapper.properties
