@@ -6,14 +6,12 @@ import org.aspectj.lang.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Aspect
+@Slf4j
 public class UserActivityLogger {
-    private Logger logger = Logger.getLogger(getClass().getName());
-
-    //named pointcut
     @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
     public void controllerMethods() {}
 
@@ -23,11 +21,11 @@ public class UserActivityLogger {
         String methodName = joinPoint.getSignature().getName();
         String remoteAddress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
                 .getRequest().getRemoteAddr();
-        logger.info("User activity started: " + methodName + ", IP address: " + remoteAddress);
+        log.info("User activity started: " + methodName + ", IP address: " + remoteAddress);
         // Thực hiện method gốc
         Object result = joinPoint.proceed();
         // Ghi log sau khi thực hiện method
-        logger.info("User activity finished: " + methodName);
+        log.info("User activity finished: " + methodName);
         return result;
     }
 }
